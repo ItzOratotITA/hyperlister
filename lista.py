@@ -12,7 +12,7 @@ def y(text):
     return f"[yellow]{text}[/yellow]"
 
 
-TITLE = "Hyperlister Alpha 0.0.1"
+TITLE = "Hyperlister Alpha 0.0.2"
 PTITLE = "Hyperlister"
 
 
