@@ -12,7 +12,7 @@ def y(text):
     return f"[yellow]{text}[/yellow]"
 
 
-TITLE = "Hyperlister"
+TITLE = "Hyperlister Alpha 0.0.1"
 
 
 def p():
@@ -160,6 +160,6 @@ try:
 except IndexError:
     # try:
     p()
-    #except:
+    # except:
     #    print("Ehi la... prima installa il programma.")
     #    setup()
