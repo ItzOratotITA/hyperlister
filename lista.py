@@ -13,6 +13,7 @@ def y(text):
 
 
 TITLE = "Hyperlister Alpha 0.0.1"
+PTITLE = "Hyperlister"
 
 
 def p():
@@ -38,7 +39,7 @@ def p():
      {y('| /\\ | |')}\
      {y('| \\/ | |')} \
     {y('<>____---')}  \ [white]/--------------------------------------[/white]\
-                | Benvenuto a [bold blue]{TITLE}![/bold blue]               |
+                | Benvenuto a [bold blue]{PTITLE}![/bold blue]               |
                 | Scrivi ciò che vuoi aggiungerci        |
                 | e scrivi "stop" per fermare.           |
                 |                                        |
@@ -125,9 +126,9 @@ def setup():
  /    \<>
  | /\ | |\
  | \/ | | \
-<>____---  \ /----------------------------------------\
+<>____---  \ /----------------------------------------------------\
             | Benvenuto al setup di {TITLE}!       |
-             \----------------------------------------/
+             \----------------------------------------------------/
     
     """
     )
