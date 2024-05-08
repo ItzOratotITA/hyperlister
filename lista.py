@@ -158,8 +158,8 @@ try:
     if args[1] in ("--setup", "/s", "/setup", "-s"):
         setup()
 except IndexError:
-    # try:
-    p()
-    #except:
-    #    print("Ehi la... prima installa il programma.")
-    #    setup()
+    try:
+        p()
+    except:
+        print("Ehi la... prima installa il programma.")
+        setup()
