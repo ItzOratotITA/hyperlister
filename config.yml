@@ -1,5 +1,0 @@
-paths:
-  dir: ./config.yml
-targets:
-  list: lista.md
-  title: Lista della spesa
