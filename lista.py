@@ -12,13 +12,14 @@ def y(text):
     return f"[yellow]{text}[/yellow]"
 
 
-TITLE = "Hyperlister Alpha 0.0.2"
+TITLE = "Hyperlister Beta 0.0.1"
 PTITLE = "Hyperlister"
 
 
 def p():
     from rich.console import Console
     from rich.markdown import Markdown
+    from rich import print
     import yaml
 
     console = Console()
@@ -48,8 +49,9 @@ def p():
                 | "targets->list" in [magenta]{CONFIG_DIR}[/magenta]        |
                 |                                        |
                 | [yellow][BETA][/yellow] Scrivi [red]"delitem"[/red] per aprire     |
-                | la schermata di eliminazione di un     |
-                | elemento.                              |
+                | il dialogo di eliminazione di un       |
+                | elemento. Se invece vuoi rinominarlo,  |
+                | potrai scrivere "renmitems".           |
                  \--------------------------------------[white]/[/white]
     
         """
@@ -60,13 +62,29 @@ def p():
     renmitems = False
 
     def deleteitems():
-        deleteitem = console.input("[red]Cosa vorresti eliminare?[/red] ")
+        try:
+            deleteitem = console.input("[red]Cosa vorresti eliminare?[/red] ")
 
-        with open(LIST_TARGET, "r") as lista_contenuto:
-            data = lista_contenuto.read()
-            with open(LIST_TARGET, "w") as lista_nuovo:
-                data_new = data.replace(deleteitem, "(eliminato)")
-                lista_nuovo.write(data_new)
+            with open(LIST_TARGET, "r") as lista_contenuto:
+                data = lista_contenuto.read()
+                with open(LIST_TARGET, "w") as lista_nuovo:
+                    data_new = data.replace(deleteitem, "(eliminato)")
+                    lista_nuovo.write(data_new)
+        except:
+            console.print("[red]C'è stato un errore.")
+
+    def rename_items():
+        try:
+            renmitem = console.input("[green]Cosa vorresti rinominare?[/green] ")
+            edit = console.input(f"[green]Cosa dovrà rimpiazzare \"{renmitem}\"?[/green] ")
+
+            with open(LIST_TARGET, "r") as lista_contenuto:
+                data = lista_contenuto.read()
+                with open(LIST_TARGET, "w") as lista_nuovo:
+                    data_new = data.replace(renmitem, edit)
+                    lista_nuovo.write(data_new)
+        except:
+            console.print("[red]C'è stato un errore.")
 
     while True:
         add = console.input("[blue]Cosa vuoi inserire nella lista?[/blue] ")
@@ -74,6 +92,9 @@ def p():
             break
         if add.lower() == "delitem":
             delitems = True
+            break
+        if add.lower() == "renmitems":
+            renmitems = True
             break
         else:
             articles.append(add)
@@ -94,7 +115,8 @@ def p():
         scrivi()
     if delitems:
         deleteitems()
-    time.sleep(0.7)
+    elif renmitems:
+        rename_items()
 
     console.print(
         rf"""
@@ -128,7 +150,7 @@ def setup():
  | /\ | |\
  | \/ | | \
 <>____---  \ /----------------------------------------------------\
-            | Benvenuto al setup di {TITLE}!       |
+            | Benvenuto al setup di {TITLE}!        |
              \----------------------------------------------------/
     
     """
@@ -153,12 +175,24 @@ Sto creando i file di configurazione...
     if "y" in avvia.lower() or "s" in avvia.lower():
         p()
 
-
+def show_credits():
+    from rich.console import Console
+    cnsl = Console()
+    cnsl.rule("Titoli di coda")
+    devs = ("Vanni Totaro", "Paride Totaro")
+    for dev in devs:
+        cnsl.rule(dev)
 args = sys.argv
 
 try:
     if args[1] in ("--setup", "/s", "/setup", "-s"):
         setup()
+    elif args[1] in ("--credits", "/cr", "/credits", "-cr"):
+        try:
+            show_credits()
+        except:
+            print("Non abbiamo trovato una dipendenza. Dopo questo setup, riavvia il programma.")
+            setup()
 except IndexError:
     try:
         p()
