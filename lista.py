@@ -57,6 +57,7 @@ def p():
 
     articles = []
     delitems = False
+    renmitems = False
 
     def deleteitems():
         deleteitem = console.input("[red]Cosa vorresti eliminare?[/red] ")
