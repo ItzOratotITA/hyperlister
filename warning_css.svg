@@ -10,7 +10,7 @@
 
       <div class="container">
         <p style="color: red;"><span style="color: white; background-color: red; border-radius: 5px;">! WARNING !</span> EXTRACT THE ZIP IN THE USER HOME, OTHERWISE IT WON'T WORK</p>
-        <p style="color: red;"><span style="color: red>Alternatively, run it from the folder you put the file in.<span></p>
+        <p style="color: red;"><span style="color: red>Alternatively, run it from the folder you put the file in.</span></p>
       </div>
     </div>
   </foreignObject>
