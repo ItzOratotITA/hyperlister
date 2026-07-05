@@ -3,13 +3,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
         .container {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
             font-size: medium;
         }
       </style>
 
       <div class="container">
-        <p style="color: red;"><span style="color: white; background-color: red; border-radius: 5px;">! WARNING !</span> EXTRACT THE ZIP IN THE USER HOME, OTHERWISE IT WON'T WORK</p>
+        <p style="color: red;"><span style="color: white; background-color: red; border-radius: 3px;"> WARNING </span> EXTRACT THE ZIP IN THE USER HOME, OTHERWISE IT WON'T WORK</p>
         <p style="color: red;"><span style="color: red"> Alternatively, run it from the folder you put the file in.</span></p>
       </div>
     </div>
